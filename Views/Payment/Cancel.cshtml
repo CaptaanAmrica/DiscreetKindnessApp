@@ -1,0 +1,69 @@
+﻿<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops, Something Went Wrong!</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #fff;
+        }
+
+        .error-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+            .error-container h1 {
+                font-size: 3rem;
+                margin: 0;
+            }
+
+            .error-container p {
+                font-size: 1.2rem;
+                margin: 15px 0 30px;
+            }
+
+            .error-container a {
+                display: inline-block;
+                padding: 12px 25px;
+                font-size: 1rem;
+                color: #fff;
+                text-decoration: none;
+                background: #f76c6c;
+                border-radius: 25px;
+                transition: background 0.3s ease;
+            }
+
+                .error-container a:hover {
+                    background: #f44336;
+                }
+
+            .error-container .emoji {
+                font-size: 4rem;
+                margin: 15px 0;
+            }
+    </style>
+</head>
+
+<div class="error-container">
+    <h1>Oops, It's Not You, It's Us!</h1>
+    <p>We're sorry, but something went wrong on our end. Please try again later.</p>
+    <div class="emoji">😔💔</div>
+    <div class="collapse-horizontal">
+        <a herf="/Payment/Donate">Donate More!!</a>
+        <a href="/Home/Index">Go Back to Home</a>
+    </div>
+</div>

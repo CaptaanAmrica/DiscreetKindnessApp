@@ -1,0 +1,68 @@
+﻿<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #fff;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+            .thank-you-container h1 {
+                font-size: 3rem;
+                margin: 0;
+            }
+
+            .thank-you-container p {
+                font-size: 1.2rem;
+                margin: 15px 0 30px;
+            }
+
+            .thank-you-container a {
+                display: inline-block;
+                padding: 12px 25px;
+                font-size: 1rem;
+                color: #fff;
+                text-decoration: none;
+                background: #ff7eb3;
+                border-radius: 25px;
+                transition: background 0.3s ease;
+            }
+
+                .thank-you-container a:hover {
+                    background: #ff5281;
+                }
+
+            .thank-you-container .emoji {
+                font-size: 4rem;
+                margin: 15px 0;
+            }
+    </style>
+</head>
+<div class="thank-you-container">
+    <h1>Thank You!</h1>
+    <p>We are so grateful for your contribution. Your support means the world to us!</p>
+    <div class="emoji">😊🎉</div>
+    <div class="collapse-horizontal">
+        <a herf="/Payment/Donate">Donate More!!</a>
+        <a href="/Home/Index">Go Back to Home</a>
+    </div>
+</div>

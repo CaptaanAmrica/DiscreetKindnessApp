@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .text-center {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #5a67d8;
+        }
+
+        a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-size: 1rem;
+        }
+
+        #nameField {
+            margin-top: 15px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #5a67d8;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+            button:hover {
+                background: #434190;
+            }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .alert {
+            color: #e53e3e;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p class="emoji">🌟😊</p>
+    <h3>Welcome to My Donation App</h3>
+    <p>Your support keeps this project alive!</p>
+    <form action="/Payment/Donate" method="post" onsubmit="return validateForm();">
+        <ul>
+            <li>
+                <input type="radio" id="radio1" name="donationType" value="anonymous" />
+                <label for="radio1">Stay Anonymous!!</label>
+            </li>
+            <li>
+                <input type="radio" id="radio2" name="donationType" value="named" />
+                <label for="radio2">I will give a donation!!</label>
+            </li>
+        </ul>
+        <div id="nameField" style="display: none;">
+            <input type="text" name="name" placeholder="What's in the name!!" />
+        </div>
+        <button type="submit">Contribute a coffee to Me!!</button>
+    </form>
+</div>
+<script>
+    const radio1 = document.getElementById('radio1');
+    const radio2 = document.getElementById('radio2');
+    const nameField = document.getElementById('nameField');
+    const alertMessage = document.getElementById('alertMessage');
+
+    // Add event listeners
+    radio1.addEventListener('change', () => {
+        nameField.style.display = 'none';
+        alertMessage.style.display = 'none';
+    });
+
+    radio2.addEventListener('change', () => {
+        nameField.style.display = 'block';
+        alertMessage.style.display = 'none';
+    });
+
+    function validateForm() {
+        const radio1Checked = radio1.checked;
+        const radio2Checked = radio2.checked;
+
+        if (!radio1Checked && !radio2Checked) {
+            alertMessage.style.display = 'block';
+            return false;
+        }
+
+        return true;
+    }
+</script>
