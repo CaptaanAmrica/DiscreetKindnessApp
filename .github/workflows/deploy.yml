@@ -34,7 +34,7 @@ jobs:
         continue-on-error: false
 
       - name: Publish Application
-        run: dotnet publish -c Release -o ./publish_output
+        run: dotnet publish -c Release -o publish_output
         working-directory: ./
         continue-on-error: false
 
