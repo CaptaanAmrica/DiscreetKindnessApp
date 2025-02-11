@@ -51,6 +51,21 @@
                     background: #f44336;
                 }
 
+            .error-container button {
+                display: inline-block;
+                padding: 12px 25px;
+                font-size: 1rem;
+                color: #fff;
+                text-decoration: none;
+                background: #f76c6c;
+                border-radius: 25px;
+                transition: background 0.3s ease;
+            }
+
+                .error-container button:hover {
+                    background: #f44336;
+                }
+
             .error-container .emoji {
                 font-size: 4rem;
                 margin: 15px 0;
@@ -59,11 +74,13 @@
 </head>
 
 <div class="error-container">
-    <h1>Oops, It's Not You, It's Us!</h1>
-    <p>We're sorry, but something went wrong on our end. Please try again later.</p>
-    <div class="emoji">😔💔</div>
-    <div class="collapse-horizontal">
-        <a herf="/Payment/Donate">Donate More!!</a>
-        <a href="/Home/Index">Go Back to Home</a>
-    </div>
+    <form method="post" action="@Url.Action("Donate", "Payment")">
+        <h1>Oops, It's Not You, It's Us!</h1>
+        <p>We're sorry, but something went wrong on our end. Please try again later.</p>
+        <div class="emoji">😔💔</div>
+        <div class="collapse-horizontal">
+            <button type="submit">Donate More!!</button>
+            <a href="/Home/Index">Go Back to Home</a>
+        </div>
+    </form>
 </div>

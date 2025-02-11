@@ -51,6 +51,21 @@
                     background: #ff5281;
                 }
 
+            .thank-you-container button {
+                display: inline-block;
+                padding: 12px 25px;
+                font-size: 1rem;
+                color: #fff;
+                text-decoration: none;
+                background: #f76c6c;
+                border-radius: 25px;
+                transition: background 0.3s ease;
+            }
+
+                .thank-you-container button:hover {
+                    background: #f44336;
+                }
+
             .thank-you-container .emoji {
                 font-size: 4rem;
                 margin: 15px 0;
@@ -58,11 +73,13 @@
     </style>
 </head>
 <div class="thank-you-container">
-    <h1>Thank You!</h1>
-    <p>We are so grateful for your contribution. Your support means the world to us!</p>
-    <div class="emoji">😊🎉</div>
-    <div class="collapse-horizontal">
-        <a herf="/Payment/Donate">Donate More!!</a>
-        <a href="/Home/Index">Go Back to Home</a>
-    </div>
+    <form method="post" action="@Url.Action("Donate", "Payment")">
+        <h1>Thank You!</h1>
+        <p>We are so grateful for your contribution. Your support means the world to us!</p>
+        <div class="emoji">😊🎉</div>
+        <div class="collapse-horizontal">
+            <button type="submit">Donate More!!</button>
+            <a href="/Home/Index">Go Back to Home</a>
+        </div>
+    </form>
 </div>
