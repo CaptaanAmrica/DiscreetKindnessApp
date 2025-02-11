@@ -39,7 +39,8 @@ jobs:
         continue-on-error: false
 
       - name: Install git-ftp
-        run: choco install git-ftp -y
+        run: |
+          winget install --id=git-ftp.git-ftp --source=winget
 
       - name: Deploy via Git FTP
         run: |
