@@ -39,12 +39,12 @@ jobs:
         continue-on-error: false
 
       - name: Install git-ftp
-        run: sudo apt-get install -y git-ftp
+        run: choco install git-ftp -y
 
       - name: Deploy via Git FTP
         run: |
-          git ftp push --auto-init \
-                       --user "${{ secrets.FTP_USERNAME }}" \
-                       --passwd "${{ secrets.FTP_PASSWORD }}" \
+          git ftp push --auto-init ^
+                       --user "${{ secrets.FTP_USERNAME }}" ^
+                       --passwd "${{ secrets.FTP_PASSWORD }}" ^
                          ftp://${{ secrets.FTP_SERVER }}/discreetkindnessapp/
 
