@@ -34,16 +34,17 @@ jobs:
         continue-on-error: false
 
       - name: Publish Application
-        run: dotnet publish -c Release -o publish_output
+        run: dotnet publish -c Release -o ./publish_output
         working-directory: ./
         continue-on-error: false
 
-      - name: Deploy to SharkASP.NET via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./publish_output/
-          server-dir: /discreetkindnessapp/
-          sync-mode: true
+      - name: Install git-ftp
+        run: sudo apt-get install -y git-ftp
+
+      - name: Deploy via Git FTP
+        run: |
+          git ftp push --auto-init \
+                       --user "${{ secrets.FTP_USERNAME }}" \
+                       --passwd "${{ secrets.FTP_PASSWORD }}" \
+                         ftp://${{ secrets.FTP_SERVER }}/discreetkindnessapp/
+
