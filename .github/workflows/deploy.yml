@@ -38,12 +38,12 @@ jobs:
         working-directory: ./
         continue-on-error: false
 
-      - name: Install git-ftp
-        run: choco install git-ftp -y -s https://community.chocolatey.org/api/v2/
-
-      - name: Deploy via Git FTP
-        run: |
-          git ftp push --auto-init ^
-                       --user "${{ secrets.FTP_USERNAME }}" ^
-                       --passwd "${{ secrets.FTP_PASSWORD }}" ^
-                         ftp://${{ secrets.FTP_SERVER }}/discreetkindnessapp/
+      - name: Deploy to SharkASP.NET via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./publish_output/
+          server-dir: /discreetkindnessapp/
+          dangerous-clean-slate: true
