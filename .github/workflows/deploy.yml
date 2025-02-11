@@ -40,7 +40,9 @@ jobs:
 
       - name: Install git-ftp
         run: |
-          winget install --id=git-ftp.git-ftp --source=winget
+          Invoke-WebRequest -Uri https://github.com/git-ftp/git-ftp/releases/download/v1.6.0/git-ftp-1.6.0.zip -OutFile git-ftp.zip
+          Expand-Archive -Path git-ftp.zip -DestinationPath $env:ProgramFiles
+          $env:PATH += ";$env:ProgramFiles\git-ftp-1.6.0"
 
       - name: Deploy via Git FTP
         run: |
