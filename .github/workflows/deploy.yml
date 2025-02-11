@@ -46,4 +46,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./publish_output/
           server-dir: /discreetkindnessapp/
-          sync-mode: true
+          dangerous-clean-slate: true
